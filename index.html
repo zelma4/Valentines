@@ -2,129 +2,145 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Для моєї Коханої ❤️</title>
+    <title>Для моєї ❤️</title>
     <style>
         body {
-            background: #ffe6f2;
-            font-family: 'Arial', sans-serif;
             margin: 0;
-            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ffa2c9, #fc7f94);
+            font-family: 'Pacifico', cursive;
+            overflow: hidden;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            position: relative;
+            text-align: center;
         }
 
         .heart {
-            color: #ff0066;
-            font-size: 48px;
-            cursor: pointer;
-            transition: transform 0.3s;
+            position: absolute;
+            width: 20px;
+            animation: fall 3s linear infinite;
+            opacity: 0.7;
         }
 
-        .heart:hover {
-            transform: scale(1.2);
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 4em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .message {
-            background: white;
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2em;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(255,0,102,0.2);
-            margin: 20px 0;
-        }
-
-        .photos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .photos img {
-            width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .photos img:hover {
-            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            max-width: 500px;
+            margin: 20px;
+            transform: rotate(-2deg);
+            animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(-2deg); }
         }
 
-        .floating-heart {
-            position: fixed;
-            animation: float 3s ease-in-out infinite;
-            font-size: 24px;
+        button {
+            background: #ff4d6d;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
         }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #ff4d6d;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            color: #ff4d6d;
+            font-size: 1.5em;
+        }
+
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1 class="animate__animated animate__heartBeat" style="text-align: center; color: #ff0066;">
-            🎀 Кохана, з Днем Валентина! 🎀
-        </h1>
-
+        <h1>❤️ Любов моя ❤️</h1>
+        
         <div class="message">
-            <p>Ти справді даруєш мені незабутні емоції щодня. 💖</p>
-            <p>Я дуже сильно тебе люблю і надіюсь зустріти з тобою старість.</p>
-            <!-- Додай особисті спогади тут -->
+            <p>Моя найдорожча,</p>
+            <p>Ти справді даруєш мені тільки радісні моменти життя. 
+            Кожен день, кожна секунда проведена з тобою дуже сильно надихає мене. 
+            Я дякую тобі за те, що ти є, що ти не така як усі, ти особлива.
+            І я справді, справді надіюсь провести з тобою все своє життя. 
+            Ти, думаю, найкраще, що траплялось у моєму житті.</p>
+            <p>З Днем Валентина, моя кохана! 💖</p>
         </div>
 
-        <div class="photos">
-            <!-- Додай свої фото (заміни посилання) -->
-            <img src="your-photo1.jpg" alt="Наші спогади">
-            <img src="your-photo2.jpg" alt="Наші спогади">
-        </div>
-
-        <div style="text-align: center;">
-            <div onclick="showMessage()" class="heart">❤️</div>
-            <p id="secretMessage" style="display: none;">Ти зробила мене найщасливішою людиною у світі! 🥰</p>
-        </div>
-
-        <div class="message">
-            <h2>10 причин чому я тебе кохаю:</h2>
-            <ol>
-                <!-- Додай персоналізовані пункти -->
-                <li>Твоя доброта</li>
-                <li>Твій сміх</li>
-                <li>...і ще 8 причин від серця</li>
-            </ol>
-        </div>
+        <button onclick="showSecretMessage()">Натисни тут 😊</button>
+        <div id="secret" class="hidden-message">Без тебе мене нема! 🥰</div>
     </div>
 
     <script>
-        function showMessage() {
-            document.getElementById('secretMessage').style.display = 'block';
-            createHearts();
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💗';
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+                document.body.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 5000);
+            }, 300);
         }
 
-        function createHearts() {
-            for(let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.innerHTML = '❤️';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 2 + 's';
-                document.body.appendChild(heart);
-                
-                setTimeout(() => heart.remove(), 5000);
+        function showSecretMessage() {
+            document.getElementById('secret').style.display = 'block';
+            document.querySelector('button').style.display = 'none';
+            
+            // Додаємо конфетті
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerHTML = '🎉';
+                confetti.style.position = 'absolute';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = Math.random() * 100 + 'vh';
+                confetti.style.animation = `confettiFall ${Math.random() * 2 + 1}s linear`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 3000);
             }
         }
 
-        // Додаємо музику при відкритті (опційно)
-        window.onload = function() {
-            const audio = new Audio('romantic-music.mp3'); // Додай посилання на музику
-            audio.play().catch(() => { /* Обробка помилок */ });
-        }
+        // Запускаємо сердечка при завантаженні
+        window.onload = createHearts;
     </script>
 </body>
 </html>
